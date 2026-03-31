@@ -19,7 +19,6 @@ class _AgenaStringEnt extends State<AgenaStringEnt> {
   void initState() {
     super.initState();
     terdictdious();
-
   }
 
   @override
@@ -28,10 +27,9 @@ class _AgenaStringEnt extends State<AgenaStringEnt> {
   }
 
   terdictdious() async {
-    
     if (!DateTime.now().isAfter(DateTime(2026, 4, 7, 13, 11, 0))) {
       await Future.delayed(const Duration(milliseconds: 320));
-      Get.to(PalabhAtiStart());
+      Get.to(() => PalabhAtiStart(), transition: Transition.noTransition);
       return;
     }
 
@@ -43,9 +41,9 @@ class _AgenaStringEnt extends State<AgenaStringEnt> {
         await ScreenProtector.protectDataLeakageWithBlur();
       }());
 
-      Get.to(BiouoNtravenEs());
+      Get.to(() => BiouoNtravenEs(), transition: Transition.noTransition);
     } else {
-      Get.to(PalabhAtiStart());
+      Get.to(() => PalabhAtiStart(), transition: Transition.noTransition);
     }
   }
 
