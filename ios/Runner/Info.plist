@@ -20,6 +20,23 @@
 		<string>$(FLUTTER_BUILD_NAME)</string>
 		<key>CFBundleSignature</key>
 		<string>????</string>
+		<key>CFBundleURLTypes</key> 
+        <array>
+            <dict>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>fb1498794451942542</string>  
+                </array>
+            </dict>
+        </array>
+        <key>FacebookAppID</key>
+        <string>1498794451942542</string>
+        <key>FacebookClientToken</key>
+        <string>2d0b581775c7f1bec20a103847b0b28a</string>
+        <key>FacebookDisplayName</key>
+        <string>Chict</string>
+        <key>FacebookAutoLogAppEventsEnabled</key>
+        <true/>
 		<key>CFBundleVersion</key>
 		<string>$(FLUTTER_BUILD_NUMBER)</string>
 		<key>LSRequiresIPhoneOS</key>
@@ -50,6 +67,38 @@
     <key>NSAllowsArbitraryLoads</key>
     <true/>
 </dict>
+		<key>UIBackgroundModes</key>
+		<array>
+			<string>remote-notification</string>
+		</array>
+		<key>UNUserNotificationCenter</key>
+		<dict>
+			<key>UNAuthorizationOptions</key>
+			<array>
+				<string>alert</string>
+			</array>
+		</dict>
+		<key>LSApplicationQueriesSchemes</key>
+		<array>
+		  <string>squarecash</string>
+                <string>cashme</string>
+                <string>upi</string>
+                <string>phonepe</string>
+                <string>paytmmp</string>
+                <string>gpay</string>
+                <string>com.amazon.mobile.shopping</string>
+                <string>mobikwik</string>
+                <string>freecharge</string>
+			<string>whatsapp</string>
+			<string>instagram</string>
+			<string>fb</string>
+			<string>tiktok</string>
+			<string>comgooglemaps</string>
+			<string>tweetie</string>
+			<string>wechat</string>
+			<string>alipay</string>
+			<string>mqq</string>
+		</array>
 <key>NSCameraUsageDescription</key>
 <string>This app requires access to your camera to allow you to shoot photos and videos for creation and sharing.</string>
 

@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pazir/backend/atiliberationmes.dart';
 import 'package:pazir/backend/prakritiuser.dart';
 import 'package:pazir/backend/softenembod.dart';
+import 'package:pazir/page/kundalinichat/bhaenergetic.dart';
 import 'package:pazir/page/manipuramine/twistflowreport.dart';
 import 'package:record/record.dart';
 
@@ -126,6 +127,26 @@ class _GrounnImiLia extends State<GrounnImiLia> {
                               ),
                             ),
                             Spacer(),
+
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () {
+                                  Get.to(
+                                    BhaenErgeTic(bhRIdhaUs: widget.bhRIdhaUs),
+                                  );
+                                },
+                                child: Container(
+                                  width: 32,
+                                  height: 32,
+                                  decoration: BoxDecoration(),
+                                  child: Image.asset(
+                                    "assets/images/xzchuiBCYUIQWI.png",
+                                  ),
+                                ),
+                              ),
+                            ),
                             GestureDetector(
                               behavior: HitTestBehavior.translucent,
                               onTap: () {
@@ -581,7 +602,7 @@ class _GrounnImiLia extends State<GrounnImiLia> {
                                                             1,
                                                           ),
                                                           borderRadius: BorderRadius.only(
-                                                              topLeft:
+                                                            topLeft:
                                                                 Radius.circular(
                                                                   20,
                                                                 ),

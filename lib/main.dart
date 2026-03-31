@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:pazir/backend/eatierrationon.dart';
 import 'package:pazir/backend/softenembod.dart';
 import 'package:pazir/page/samadhihome/pranaajnashou.dart';
-import 'package:pazir/page/vinyasalogin/palabhatistart.dart';
+import 'package:pazir/page/vinyasalogin/agenastringent.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await FFAppState.instance.init();
-
+  await Ciobstruseus().init();
   runApp(const MainApp());
 }
 
@@ -25,7 +27,7 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.black,
         body: FFAppState.instance.flexionLogUid == -1
-            ? PalabhAtiStart()
+            ? AgenaStringEnt()
             : PranaAjnaShou(),
       ),
     );

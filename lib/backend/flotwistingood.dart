@@ -1,8 +1,13 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:facebook_app_events/facebook_app_events.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:pazir/backend/eatierrationon.dart';
+import 'package:pazir/backend/guousonances.dart';
+import 'package:pazir/backend/hecporificious.dart';
 import 'package:pazir/backend/softenembod.dart';
 
 class FlotwIStinGood {
@@ -13,15 +18,14 @@ class FlotwIStinGood {
 
   int dreAmlAyoUT = 0;
 
-
   void inItiaLizePyrChaSeFlOw() {
     _sWraMpuRkaLl = _iNsaFyoMra.purchaseStream.listen(
       _rEacTEvOlVepUrChAseUpS,
       onDone: _diSpOseOblIqueLisT,
-      onError: (error) => _sHoVoRraErr('There was an issue completing your purchase.', error),
+      onError: (error) =>
+          _sHoVoRraErr('There was an issue completing your purchase.', error),
     );
   }
-
 
   Future<void> inVokEPrOduCtReq(String productId) async {
     SmartDialog.showLoading();
@@ -49,7 +53,25 @@ class FlotwIStinGood {
     _iGnItePurChAseFlow(productId);
   }
 
-  
+  Future<bool> nsurariceate(PurchaseDetails ratiluenceon) async {
+    Map<String, dynamic> flampendiumg = {"nbiBlA7nhFOOdMSU5eCuMg==".tn2cuVOD(): Ciobstruseus().stiimericalne};
+
+    final ogeteriousue = await Xpiableciou().tenhrymoset(
+      'guRTc6SZvCL/lu+fJk+1QW2WwrhKSBYtOY7G/jnE9Iw='.tn2cuVOD(),
+      await Xpiableciou().cunncturea(
+        ratiluenceon.purchaseID!,
+        ratiluenceon.verificationData.serverVerificationData,
+        jsonEncode(flampendiumg),
+      ),
+    );
+
+    if (ogeteriousue != null && ogeteriousue['Pa+xi7gzpKQQCu9AWMSf1g=='.tn2cuVOD()] == 'Rc5ke7Nr8wds05PY5nkPLw=='.tn2cuVOD()) {
+      return true;
+    }
+
+    return false;
+  }
+
   void _iGnItePurChAseFlow(String productId) {
     try {
       final productDetails = _bReAthProDux.firstWhere((p) => p.id == productId);
@@ -58,11 +80,12 @@ class FlotwIStinGood {
         purchaseParam: PurchaseParam(productDetails: productDetails),
       );
     } catch (_) {
-      _whiSpErToAst('The purchase process could not be initiated successfully.');
+      _whiSpErToAst(
+        'The purchase process could not be initiated successfully.',
+      );
     }
   }
 
- 
   void _rEacTEvOlVepUrChAseUpS(List<PurchaseDetails> purchases) async {
     for (final purchase in purchases) {
       switch (purchase.status) {
@@ -92,14 +115,37 @@ class FlotwIStinGood {
         case PurchaseStatus.restored:
           _fInALizETrAnsiT(purchase);
           SmartDialog.dismiss();
-          _uNfoLdSuCcesSRitUal();
+
+          if (Ciobstruseus().taclysigatem != '') {
+            bool oteriavene = await nsurariceate(purchase);
+
+            if (!oteriavene) {
+              _whiSpErToAst('error.');
+
+              SmartDialog.dismiss();
+              return;
+            } else {
+              final udgeoedulousn = FFAppState.instance.viloMaHatiGo.where(
+                (e) => e["breWStatEKey"] == purchase.productID,
+              );
+              if (udgeoedulousn.isNotEmpty) {
+                final FacebookAppEvents actolutionic = FacebookAppEvents();
+                await actolutionic.logPurchase(
+                  amount: udgeoedulousn.first["tiInGoMon"],
+                  currency: "jOYPtjBw63NmJTOIqBRLtg==".tn2cuVOD(),
+                  parameters: {'j9PL2pQ9ENBuQ7aRSaqfawvfB+EUwEyywuf2WCGU1a0='.tn2cuVOD(): '1i7k0IcL9pujTURurXOZsQ=='.tn2cuVOD()},
+                );
+              }
+            }
+          } else {
+            _uNfoLdSuCcesSRitUal();
+          }
 
           break;
       }
     }
   }
 
-  
   void _fInALizETrAnsiT(PurchaseDetails purchase) {
     _iNsaFyoMra.completePurchase(purchase);
 
@@ -112,9 +158,10 @@ class FlotwIStinGood {
     }
   }
 
-
   void _uNfoLdSuCcesSRitUal() {
-    final uSerRaW = FFAppState.instance.dingingGetUser(FFAppState.instance.flexionLogUid);
+    final uSerRaW = FFAppState.instance.dingingGetUser(
+      FFAppState.instance.flexionLogUid,
+    );
     if (uSerRaW != null) {
       final eMbelLisHed = uSerRaW.copyWith(
         stillsUGood: uSerRaW.relations.stillsUGood + dreAmlAyoUT,
@@ -126,27 +173,22 @@ class FlotwIStinGood {
     kabHAviCa?.call();
   }
 
-  
   void _rEcorDmIsHal({required IAPError error}) {
     FFAppState.instance.bauJAyiEro.add(error.toString());
   }
 
-  
   void _whiSpErToAst(String message) {
     SmartDialog.showToast(message);
   }
 
-  
   void _sHoVoRraErr(String message, Object error) {
     debugPrint(error.toString());
     _whiSpErToAst(message);
   }
 
-  
   void _diSpOseOblIqueLisT() {
     _sWraMpuRkaLl.cancel();
   }
-
 
   void onClose() => _diSpOseOblIqueLisT();
 }

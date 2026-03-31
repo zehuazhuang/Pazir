@@ -88,6 +88,9 @@ class FFAppState {
     _safeInit(() {
       _flexionLogUid = prefs.getInt('ff_flexionLogUid') ?? _flexionLogUid;
     });
+      _safeInit(() {
+      _ouendicantsly = prefs.getString('ff_ouendicantsly') ?? _ouendicantsly;
+    });
   }
 
   int _flexionLogUid = -1;
@@ -95,6 +98,14 @@ class FFAppState {
   set flexionLogUid(int value) {
     _flexionLogUid = value;
     prefs.setInt('ff_flexionLogUid', value);
+  }
+
+
+   String _ouendicantsly = "";
+  String get ouendicantsly => _ouendicantsly;
+  set ouendicantsly(String value) {
+    _ouendicantsly = value;
+    prefs.setString('ff_ouendicantsly', value);
   }
 
   int shamBHavInd = 0;

@@ -1,7 +1,7 @@
 name: pazir
 description: "A new Flutter project."
-publish_to: 'none'
-version: 1.0.0+1
+publish_to: "none"
+version: 1.1.0+1
 
 environment:
   sdk: ^3.8.1
@@ -28,7 +28,17 @@ dependencies:
   loading_indicator: 3.1.1
   flutter_launcher_icons: 0.14.4
   flutter_native_splash: 2.4.7
-
+  flutter_keychain: ^2.5.0
+  vpn_detector: 1.2.0
+  system_keyboard_languages: 0.0.2
+  facebook_app_events: ^0.20.1
+  device_info_plus: ^12.2.0
+  http: 1.5.0
+  screen_protector: ^1.4.2+1
+  devicelocale: 0.8.2
+  flutter_native_timezone: 2.0.0
+  flutter_local_notifications: 19.5.0
+  url_launcher: ^6.3.2
 
 dev_dependencies:
   flutter_test:
@@ -43,19 +53,17 @@ flutter_launcher_icons:
     generate: true
   image_path: "assets/images/Pazir.png"
 
-flutter_native_splash: 
+flutter_native_splash:
   background_image: "assets/images/nxuiBASDAIUW.png"
 
 flutter:
   uses-material-design: true
 
-
   assets:
     - assets/images/
     - assets/fonts/
     - assets/video/
-    - assets/audio/  
-
+    - assets/audio/
 
   fonts:
     - family: NotoSans
