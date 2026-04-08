@@ -88,8 +88,11 @@ class FFAppState {
     _safeInit(() {
       _flexionLogUid = prefs.getInt('ff_flexionLogUid') ?? _flexionLogUid;
     });
-      _safeInit(() {
+    _safeInit(() {
       _ouendicantsly = prefs.getString('ff_ouendicantsly') ?? _ouendicantsly;
+    });
+    _safeInit(() {
+      _lobreatwme = prefs.getBool('ff_lobreatwme') ?? _lobreatwme;
     });
   }
 
@@ -100,12 +103,18 @@ class FFAppState {
     prefs.setInt('ff_flexionLogUid', value);
   }
 
-
-   String _ouendicantsly = "";
+  String _ouendicantsly = "";
   String get ouendicantsly => _ouendicantsly;
   set ouendicantsly(String value) {
     _ouendicantsly = value;
     prefs.setString('ff_ouendicantsly', value);
+  }
+
+  bool _lobreatwme = false;
+  bool get lobreatwme => _lobreatwme;
+  set lobreatwme(bool value) {
+    _lobreatwme = value;
+    prefs.setBool('ff_lobreatwme', value);
   }
 
   int shamBHavInd = 0;
@@ -132,12 +141,16 @@ class FFAppState {
       RootingUsers(
         sukhabUid: 1,
         vivekaUName: "69ef1d430e3c16cd5800103b9eeafaff".sovoTIonUl(),
-        apattiUEmail: "64eea1f3b33bf77f47fd1ae9a7e123792d147284e8eb2c0745b083078f018d5d".sovoTIonUl(),
+        apattiUEmail:
+            "64eea1f3b33bf77f47fd1ae9a7e123792d147284e8eb2c0745b083078f018d5d"
+                .sovoTIonUl(),
         hastrikUPasw: "97708371670033f7ac0c2cf5a51f7bcd".sovoTIonUl(),
-        idanadiUAvatar: "ea1b15984c66c96de6c21229313c10c16a8f6614d176972f684607fc2009133c".sovoTIonUl(),
+        idanadiUAvatar:
+            "ea1b15984c66c96de6c21229313c10c16a8f6614d176972f684607fc2009133c"
+                .sovoTIonUl(),
         relations: (
           stillsUGood: 0,
-          vationUFollow: [2, 5, 6],
+          vationUFollow: [2,3, 5, 6],
           onactiUFans: [3],
           easingUBlock: [],
         ),
@@ -147,7 +160,9 @@ class FFAppState {
         vivekaUName: "c48aee06b806d4ac8bb236b5e7fe0f95".sovoTIonUl(),
         apattiUEmail: "",
         hastrikUPasw: "",
-        idanadiUAvatar: "ea1b15984c66c96de6c21229313c10c11076140a178bb9d5709c5a0359e0d168".sovoTIonUl(),
+        idanadiUAvatar:
+            "ea1b15984c66c96de6c21229313c10c11076140a178bb9d5709c5a0359e0d168"
+                .sovoTIonUl(),
         relations: (
           stillsUGood: 0,
           vationUFollow: [],
@@ -160,11 +175,13 @@ class FFAppState {
         vivekaUName: "9ae72c038cdd3084958225e660913f1c".sovoTIonUl(),
         apattiUEmail: "",
         hastrikUPasw: "",
-        idanadiUAvatar: "ea1b15984c66c96de6c21229313c10c196c11270d7489c6c97cf3bcc90296011".sovoTIonUl(),
+        idanadiUAvatar:
+            "ea1b15984c66c96de6c21229313c10c196c11270d7489c6c97cf3bcc90296011"
+                .sovoTIonUl(),
         relations: (
           stillsUGood: 0,
           vationUFollow: [1],
-          onactiUFans: [],
+          onactiUFans: [1],
           easingUBlock: [],
         ),
       ),
@@ -173,7 +190,9 @@ class FFAppState {
         vivekaUName: "48c01e753f8f59b519a3f3731a01debc".sovoTIonUl(),
         apattiUEmail: "",
         hastrikUPasw: "",
-        idanadiUAvatar: "ea1b15984c66c96de6c21229313c10c113ee5ea078cebdc073baca0fe46f2e7e".sovoTIonUl(),
+        idanadiUAvatar:
+            "ea1b15984c66c96de6c21229313c10c113ee5ea078cebdc073baca0fe46f2e7e"
+                .sovoTIonUl(),
         relations: (
           stillsUGood: 0,
           vationUFollow: [],
@@ -186,7 +205,9 @@ class FFAppState {
         vivekaUName: "96decae57bad5c18ea3cd3741933f354".sovoTIonUl(),
         apattiUEmail: "",
         hastrikUPasw: "",
-        idanadiUAvatar: "ea1b15984c66c96de6c21229313c10c1296d7fdfd81624dc29f99221aa224174".sovoTIonUl(),
+        idanadiUAvatar:
+            "ea1b15984c66c96de6c21229313c10c1296d7fdfd81624dc29f99221aa224174"
+                .sovoTIonUl(),
         relations: (
           stillsUGood: 0,
           vationUFollow: [],
@@ -199,7 +220,9 @@ class FFAppState {
         vivekaUName: "c200c6321c5527a02a4f29a34d145087".sovoTIonUl(),
         apattiUEmail: "",
         hastrikUPasw: "",
-        idanadiUAvatar: "ea1b15984c66c96de6c21229313c10c1666ff0aade7196be2943f5ce278a1aa3".sovoTIonUl(),
+        idanadiUAvatar:
+            "ea1b15984c66c96de6c21229313c10c1666ff0aade7196be2943f5ce278a1aa3"
+                .sovoTIonUl(),
         relations: (
           stillsUGood: 0,
           vationUFollow: [],
@@ -212,7 +235,9 @@ class FFAppState {
         vivekaUName: "1c5c1246288a882d50207f394ad9dabf".sovoTIonUl(),
         apattiUEmail: "",
         hastrikUPasw: "",
-        idanadiUAvatar: "d019ab8187132f4d5212c0df057c9856573f17dc43b0b0c98177ae43bbbc07ca".sovoTIonUl(),
+        idanadiUAvatar:
+            "d019ab8187132f4d5212c0df057c9856573f17dc43b0b0c98177ae43bbbc07ca"
+                .sovoTIonUl(),
         relations: (
           stillsUGood: 0,
           vationUFollow: [],

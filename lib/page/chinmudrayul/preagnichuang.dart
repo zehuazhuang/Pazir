@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:pazir/backend/atiomentnexchat.dart';
 import 'package:pazir/backend/dvaitairtanui.dart';
 import 'package:pazir/backend/softenembod.dart';
 import 'package:pazir/page/chinmudrayul/niyasdaliniyul.dart';
+import 'package:pazir/page/chinmudrayul/palchemyiralcode.dart';
 
 class PreAgniChuang extends StatefulWidget {
   const PreAgniChuang({super.key});
@@ -16,6 +18,7 @@ class _PreAgniChuang extends State<PreAgniChuang> {
   final TextEditingController _yoGIhiraNi = TextEditingController();
   int _asSGniDe = 0;
   String? enYIngArImg;
+  String shiftCODE = "";
   @override
   void initState() {
     super.initState();
@@ -79,7 +82,7 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                               behavior: HitTestBehavior.translucent,
                               onTap: () {
                                 if (enYIngArImg != null &&
-                                    _yoGIhiraNi.text != "") {
+                                    _yoGIhiraNi.text != "" && shiftCODE!="") {
                                   int stORatiCid =
                                       FFAppState
                                           .instance
@@ -104,6 +107,8 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                                   Get.off(
                                     NiyasdAliniYul(gizintonCh: newapRimiCh),
                                   );
+                                }else{
+                                  SmartDialog.showToast("The content is incomplete.");
                                 }
                               },
                               child: PhysicalModel(
@@ -309,125 +314,179 @@ class _PreAgniChuang extends State<PreAgniChuang> {
                                   builder: (context) {
                                     final guSUtraRu =
                                         FFAppState.instance.oroSEilMuType;
-                                    return GridView.count(
-                                      padding: EdgeInsets.all(0),
-                                      crossAxisCount: 3,
-                                      mainAxisSpacing: 12,
-                                      crossAxisSpacing: 12,
-                                      childAspectRatio: 98 / 122,
-                                      shrinkWrap: true,
-                                      physics: NeverScrollableScrollPhysics(),
-                                      children: List.generate(5, (index) {
-                                        return Flex(
-                                          direction: Axis.vertical,
-                                          children: [
-                                            GestureDetector(
-                                              behavior:
-                                                  HitTestBehavior.translucent,
-                                              onTap: () {
-                                                setState(() {
-                                                  _asSGniDe = index;
-                                                });
-                                              },
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadiusGeometry.circular(
-                                                      19.6,
+                                    return SizedBox(
+                                      height: 86,
+                                      child: ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        padding: EdgeInsets.all(0),
+                                        itemCount: guSUtraRu.length,
+                                        itemBuilder: (context, index) {
+                                          return Padding(
+                                            padding: EdgeInsets.only(right: 20),
+                                            child: Flex(
+                                              direction: Axis.vertical,
+                                              children: [
+                                                GestureDetector(
+                                                  behavior: HitTestBehavior
+                                                      .translucent,
+                                                  onTap: () {
+                                                    setState(() {
+                                                      _asSGniDe = index;
+                                                    });
+                                                  },
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          19.6,
+                                                        ),
+                                                    child: Image(
+                                                      image: AssetImage(
+                                                        guSUtraRu[index]["deFUnerlaTImg"],
+                                                      ),
+                                                      fit: BoxFit.cover,
+                                                      width: 60,
+                                                      height: 60,
                                                     ),
-                                                child: Image(
-                                                  image: AssetImage(
-                                                    guSUtraRu[index]["deFUnerlaTImg"],
                                                   ),
-                                                  fit: BoxFit.cover,
-                                                  width: 98,
-                                                  height: 98,
                                                 ),
-                                              ),
-                                            ),
-
-                                            DecoratedBox(
-                                              decoration: BoxDecoration(),
-                                              child: Container(height: 6),
-                                            ),
-                                            PhysicalModel(
-                                              color: Colors.transparent,
-                                              elevation: 0,
-                                              borderRadius:
-                                                  BorderRadius.circular(45),
-                                              child: Container(
-                                                width: 20,
-                                                height: 20,
-                                                decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                    color: _asSGniDe == index
-                                                        ? const Color(
-                                                            0xFF1E7EE6,
-                                                          )
-                                                        : Colors.transparent,
-                                                  ),
+                                                SizedBox(height: 6),
+                                                PhysicalModel(
+                                                  color: Colors.transparent,
+                                                  elevation: 0,
                                                   borderRadius:
                                                       BorderRadius.circular(45),
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                    1.5,
-                                                  ),
                                                   child: Container(
+                                                    width: 20,
+                                                    height: 20,
                                                     decoration: BoxDecoration(
-                                                      gradient: LinearGradient(
-                                                        colors:
+                                                      border: Border.all(
+                                                        color:
                                                             _asSGniDe == index
-                                                            ? [
-                                                                Color.fromRGBO(
-                                                                  30,
-                                                                  126,
-                                                                  230,
-                                                                  1,
-                                                                ),
-                                                                Color.fromRGBO(
-                                                                  184,
-                                                                  218,
-                                                                  255,
-                                                                  1,
-                                                                ),
-                                                              ]
-                                                            : [
-                                                                Color.fromRGBO(
-                                                                  255,
-                                                                  255,
-                                                                  255,
-                                                                  1,
-                                                                ),
-                                                                Color.fromRGBO(
-                                                                  255,
-                                                                  255,
-                                                                  255,
-                                                                  1,
-                                                                ),
-                                                              ],
-                                                        begin: Alignment(-1, 0),
-                                                        end: Alignment(1, 0),
+                                                            ? const Color(
+                                                                0xFF1E7EE6,
+                                                              )
+                                                            : Colors
+                                                                  .transparent,
                                                       ),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                             45,
                                                           ),
                                                     ),
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                          0,
-                                                          0,
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                            1.5,
+                                                          ),
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                          gradient: LinearGradient(
+                                                            colors:
+                                                                _asSGniDe ==
+                                                                    index
+                                                                ? [
+                                                                    Color.fromRGBO(
+                                                                      30,
+                                                                      126,
+                                                                      230,
+                                                                      1,
+                                                                    ),
+                                                                    Color.fromRGBO(
+                                                                      184,
+                                                                      218,
+                                                                      255,
+                                                                      1,
+                                                                    ),
+                                                                  ]
+                                                                : [
+                                                                    Color.fromRGBO(
+                                                                      255,
+                                                                      255,
+                                                                      255,
+                                                                      1,
+                                                                    ),
+                                                                    Color.fromRGBO(
+                                                                      255,
+                                                                      255,
+                                                                      255,
+                                                                      1,
+                                                                    ),
+                                                                  ],
+                                                            begin: Alignment(
+                                                              -1,
+                                                              0,
+                                                            ),
+                                                            end: Alignment(
+                                                              1,
+                                                              0,
+                                                            ),
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius.circular(
+                                                                45,
+                                                              ),
                                                         ),
+                                                        alignment:
+                                                            Alignment.center,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
+                                              ],
                                             ),
-                                          ],
-                                        );
-                                      }),
+                                          );
+                                        },
+                                      ),
                                     );
                                   },
                                 ),
+                                DecoratedBox(
+                                  decoration: BoxDecoration(),
+                                  child: Container(height: 14),
+                                ),
+
+                                Text(
+                                  "Invitation Code:",
+                                  style: TextStyle(
+                                    fontFamily: 'Raleway',
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color.fromRGBO(5, 3, 19, 1),
+                                  ),
+                                ),
+                                DecoratedBox(
+                                  decoration: BoxDecoration(),
+                                  child: Container(height: 16),
+                                ),
+                                GestureDetector(
+                                  behavior: HitTestBehavior.translucent,
+                                  onTap: () {
+                                     Get.dialog(PalchemYiralCode());
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 54,
+                                    decoration: BoxDecoration(
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 16,
+                                      vertical: 6,
+                                    ),
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Enter...",
+                                      style: TextStyle(
+                                        fontFamily: 'Raleway',
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color.fromRGBO(5, 3, 19, 0.4),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+
                                 DecoratedBox(
                                   decoration: BoxDecoration(),
                                   child: Container(height: 30),

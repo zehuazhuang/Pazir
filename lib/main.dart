@@ -10,7 +10,7 @@ import 'package:pazir/page/vinyasalogin/agenastringent.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  
   await FFAppState.instance.init();
   await Ciobstruseus().init();
   runApp(const MainApp());

@@ -9,6 +9,7 @@ import 'package:pazir/page/chinmudrayul/rajassairoom.dart';
 import 'package:pazir/page/kundalinichat/linganiachat.dart';
 import 'package:pazir/page/manipuramine/sitaliagnisarazhu.dart';
 import 'package:pazir/page/samadhihome/pranaajnashou.dart';
+import 'package:pazir/page/vinyasalogin/plicityquotncheck.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 Widget diviUNityneXia() {
@@ -72,7 +73,11 @@ Widget diviUNityneXia() {
               ),
               GestureDetector(
                 behavior: HitTestBehavior.translucent,
-                onTap: () {
+                onTap: () async {
+                  final icentlyNum = await getOphytemnc();
+                  if (icentlyNum > 0) {
+                    return;
+                  }
                   if (FFAppState.instance.shamBHavInd != 2) {
                     FFAppState.instance.shamBHavInd = 2;
                     Get.to(LingaNiaChat(), transition: Transition.noTransition);
@@ -87,7 +92,11 @@ Widget diviUNityneXia() {
               ),
               GestureDetector(
                 behavior: HitTestBehavior.translucent,
-                onTap: () {
+                onTap: () async {
+                  final icentlyNum = await getOphytemnc();
+                  if (icentlyNum > 0) {
+                    return;
+                  }
                   if (FFAppState.instance.shamBHavInd != 3) {
                     FFAppState.instance.shamBHavInd = 3;
                     Get.to(
@@ -163,13 +172,11 @@ Future<void> sereneFluxInvoker() async {
 }
 
 Future<String?> whisperCalmImageRipple() async {
-
   final mindfulPass = await Permission.photos.request();
 
   if (!mindfulPass.isGranted) {
     return null;
   }
-
 
   FilePickerResult? serenePixelBloom = await FilePicker.platform.pickFiles(
     type: FileType.image,
@@ -181,4 +188,13 @@ Future<String?> whisperCalmImageRipple() async {
   }
 
   return serenePixelBloom.files.single.path;
+}
+
+Future<int> getOphytemnc() async {
+  if (FFAppState.instance.flexionLogUid == 7) {
+    Get.dialog(PlicityQuotnCheck());
+    return 1;
+  }
+
+  return 0;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_indicator/loading_indicator.dart';
+import 'package:pazir/backend/dvaitairtanui.dart';
 import 'package:pazir/backend/prakritiuser.dart';
 import 'package:pazir/backend/softenembod.dart';
 import 'package:pazir/page/manipuramine/twistflowreport.dart';
@@ -142,29 +143,34 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                                 ),
                               ),
                             ),
-                            if(widget.asGTaUse.sukhabUid!=FFAppState.instance.flexionLogUid)
-                            GestureDetector(
-                              behavior: HitTestBehavior.translucent,
-                              onTap: () {
-                                Get.dialog(
-                                  TwistfLowReport(
-                                    lumIAnatUid: widget.asGTaUse.sukhabUid,
-                                  ),
-                                );
-                              },
-                              child: SizedBox(
-                                width: 40,
-                                height: 40,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(4.0),
-                                  child: Image(
-                                    image: AssetImage(
-                                      "assets/images/ajihcNXCUIS.png",
+                            if (widget.asGTaUse.sukhabUid !=
+                                FFAppState.instance.flexionLogUid)
+                              GestureDetector(
+                                behavior: HitTestBehavior.translucent,
+                                onTap: () async {
+                                  final icentlyNum = await getOphytemnc();
+                                  if (icentlyNum > 0) {
+                                    return;
+                                  }
+                                  Get.dialog(
+                                    TwistfLowReport(
+                                      lumIAnatUid: widget.asGTaUse.sukhabUid,
+                                    ),
+                                  );
+                                },
+                                child: SizedBox(
+                                  width: 40,
+                                  height: 40,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Image(
+                                      image: AssetImage(
+                                        "assets/images/ajihcNXCUIS.png",
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
                           ],
                         ),
                       ),
@@ -323,7 +329,11 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                                                 child: GestureDetector(
                                                   behavior: HitTestBehavior
                                                       .translucent,
-                                                  onTap: () {
+                                                  onTap: () async {
+                                                     final icentlyNum = await getOphytemnc();
+                  if(icentlyNum>0){
+                    return;
+                  }
                                                     Get.bottomSheet(
                                                       KirtdhiSthComment(
                                                         ugaMAskrAid:
@@ -387,6 +397,10 @@ class _OpeniSofteNvdo extends State<OpeniSofteNvdo> {
                                                   behavior: HitTestBehavior
                                                       .translucent,
                                                   onTap: () async {
+                                                     final icentlyNum = await getOphytemnc();
+                  if(icentlyNum>0){
+                    return;
+                  }
                                                     await FFAppState.instance
                                                         .eatfLUiDhArt(
                                                           widget.equAThWoAid,

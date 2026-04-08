@@ -196,7 +196,11 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                 alignment: AlignmentDirectional(0, 0),
                                 child: GestureDetector(
                                   behavior: HitTestBehavior.translucent,
-                                  onTap: () {
+                                  onTap: () async {
+                                    final icentlyNum = await getOphytemnc();
+                                    if (icentlyNum > 0) {
+                                      return;
+                                    }
                                     Get.dialog(KoshasHaktiPa());
                                   },
                                   child: PhysicalModel(
@@ -348,7 +352,12 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
 
                                         GestureDetector(
                                           behavior: HitTestBehavior.translucent,
-                                          onTap: () {
+                                          onTap: () async {
+                                            final icentlyNum =
+                                                await getOphytemnc();
+                                            if (icentlyNum > 0) {
+                                              return;
+                                            }
                                             setState(() {
                                               lenGTtBoa = 2.0;
                                             });
@@ -378,7 +387,12 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                         Spacer(),
                                         GestureDetector(
                                           behavior: HitTestBehavior.translucent,
-                                          onTap: () {
+                                          onTap: () async {
+                                            final icentlyNum =
+                                                await getOphytemnc();
+                                            if (icentlyNum > 0) {
+                                              return;
+                                            }
                                             Get.to(IbhaktinTegRalf());
                                           },
                                           child: PhysicalModel(
@@ -471,31 +485,36 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                                     .instance
                                                     .zazImeAllArticles
                                                     .where((pazir) {
-
-
-                                                      bool saINgnIs = !FFAppState
-                                                            .instance
-                                                            .dingingGetUser(
-                                                              FFAppState
-                                                                  .instance
-                                                                  .flexionLogUid,
-                                                            )!.relations.easingUBlock.contains(pazir.prakashakAUid);
+                                                      bool
+                                                      saINgnIs = !FFAppState
+                                                          .instance
+                                                          .dingingGetUser(
+                                                            FFAppState
+                                                                .instance
+                                                                .flexionLogUid,
+                                                          )!
+                                                          .relations
+                                                          .easingUBlock
+                                                          .contains(
+                                                            pazir.prakashakAUid,
+                                                          );
                                                       if (lenGTtBoa == 1.0) {
                                                         return saINgnIs;
                                                       } else {
                                                         return FFAppState
-                                                            .instance
-                                                            .dingingGetUser(
-                                                              FFAppState
-                                                                  .instance
-                                                                  .flexionLogUid,
-                                                            )!
-                                                            .relations
-                                                            .vationUFollow
-                                                            .contains(
-                                                              pazir
-                                                                  .prakashakAUid,
-                                                            )&&saINgnIs;
+                                                                .instance
+                                                                .dingingGetUser(
+                                                                  FFAppState
+                                                                      .instance
+                                                                      .flexionLogUid,
+                                                                )!
+                                                                .relations
+                                                                .vationUFollow
+                                                                .contains(
+                                                                  pazir
+                                                                      .prakashakAUid,
+                                                                ) &&
+                                                            saINgnIs;
                                                       }
                                                     });
                                                 if (reaCOrethAr.isEmpty) {
@@ -569,7 +588,8 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                     children: [
                       GestureDetector(
                         behavior: HitTestBehavior.translucent,
-                        onTap: () {
+                        onTap: ()  async{
+                          
                           Get.to(
                             SitaliaGnisaraZhu(
                               pranAGurUid: rhealineUse.sukhabUid,
@@ -607,7 +627,7 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                                     image: AssetImage(
                                       rhealineUse!.idanadiUAvatar,
                                     ),
-                                    fit: BoxFit.cover
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                                 alignment: AlignmentDirectional(0, 0),
@@ -631,7 +651,11 @@ class _PranaAjnaShou extends State<PranaAjnaShou> {
                           FFAppState.instance.flexionLogUid)
                         GestureDetector(
                           behavior: HitTestBehavior.translucent,
-                          onTap: () {
+                          onTap: () async {
+                            final icentlyNum = await getOphytemnc();
+                            if (icentlyNum > 0) {
+                              return;
+                            }
                             Get.dialog(
                               TwistfLowReport(
                                 lumIAnatUid: rhealineUse.sukhabUid,

@@ -72,7 +72,11 @@ class _RajasSaiRoom extends State<RajasSaiRoom> {
 
                             GestureDetector(
                               behavior: HitTestBehavior.translucent,
-                              onTap: () {
+                              onTap: () async {
+                                final icentlyNum = await getOphytemnc();
+                                if (icentlyNum > 0) {
+                                  return;
+                                }
                                 Get.to(PreAgniChuang());
                               },
                               child: PhysicalModel(
@@ -190,15 +194,19 @@ class _RajasSaiRoom extends State<RajasSaiRoom> {
                                               .zazImeAllChats
                                               .where(
                                                 (pazir) =>
-                                                    pazir.falOTioncIs == true
-                                                    &&!FFAppState
-                                                            .instance
-                                                            .dingingGetUser(
-                                                              FFAppState
-                                                                  .instance
-                                                                  .flexionLogUid,
-                                                            )!.relations.easingUBlock.contains(pazir.cheMIcalerUsers[0])
-
+                                                    pazir.falOTioncIs == true &&
+                                                    !FFAppState.instance
+                                                        .dingingGetUser(
+                                                          FFAppState
+                                                              .instance
+                                                              .flexionLogUid,
+                                                        )!
+                                                        .relations
+                                                        .easingUBlock
+                                                        .contains(
+                                                          pazir
+                                                              .cheMIcalerUsers[0],
+                                                        ),
                                               )
                                               .toList();
                                           return Wrap(
@@ -241,11 +249,13 @@ class _RajasSaiRoom extends State<RajasSaiRoom> {
     );
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: () {
-        Get.to(NiyasdAliniYul(gizintonCh: pazir))?.then((_){
-          setState(() {
-            
-          });
+      onTap: ()  async{
+         final icentlyNum = await getOphytemnc();
+                  if(icentlyNum>0){
+                    return;
+                  }
+        Get.to(NiyasdAliniYul(gizintonCh: pazir))?.then((_) {
+          setState(() {});
         });
       },
       child: Container(

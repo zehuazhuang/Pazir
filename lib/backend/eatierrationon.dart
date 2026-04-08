@@ -19,7 +19,7 @@ class Ciobstruseus {
   ];
 
   static String furbascate = '95916775';
-  static String pricioUsmny = '1.1.0';
+  static String pricioUsmny = '1.2.0';
   String taclysigatem = '';
   int leritstverous = 0;
   String stiimericalne = '';

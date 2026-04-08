@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:pazir/backend/dvaitairtanui.dart';
-import 'package:pazir/backend/prakritiuser.dart';
 import 'package:pazir/backend/softenembod.dart';
 import 'package:pazir/page/samadhihome/pranaajnashou.dart';
 import 'package:pazir/page/vinyasalogin/dchakrarishfor.dart';
+import 'package:pazir/page/vinyasalogin/energeticalignmzu.dart';
 
 class LomvlHaraLogin extends StatefulWidget {
   const LomvlHaraLogin({super.key});
@@ -15,6 +15,7 @@ class LomvlHaraLogin extends StatefulWidget {
 }
 
 class _LomvlHaraLogin extends State<LomvlHaraLogin> {
+  final TextEditingController _esupportNA = TextEditingController();
   final TextEditingController _mulADlomYX = TextEditingController();
   final TextEditingController _jalaNgyanMI = TextEditingController();
   final TextEditingController _uddiYanaMIM = TextEditingController();
@@ -240,15 +241,49 @@ class _LomvlHaraLogin extends State<LomvlHaraLogin> {
                                 direction: Axis.vertical,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Email:",
-                                    style: TextStyle(
-                                      fontFamily: 'Raleway',
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromRGBO(5, 3, 19, 1),
+                                  if (!_ntrAmkaraIS)
+                                    Container(
+                                      width: double.infinity,
+                                      height: 55,
+                                      decoration: BoxDecoration(
+                                        color: Color.fromRGBO(235, 240, 245, 1),
+                                        borderRadius: BorderRadius.circular(16),
+                                      ),
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 16,
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: TextField(
+                                        controller: _esupportNA,
+                                        decoration: InputDecoration(
+                                          hintText: "Full name",
+                                          hintStyle: TextStyle(
+                                            fontFamily: 'Raleway',
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w400,
+                                            color: Color.fromRGBO(5, 3, 19, .4),
+                                          ),
+
+                                          border: InputBorder.none,
+                                        ),
+                                        style: TextStyle(
+                                          fontFamily: 'Raleway',
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: Color.fromRGBO(5, 3, 19, 1),
+                                        ),
+                                      ),
                                     ),
-                                  ),
+                                  if (_ntrAmkaraIS)
+                                    Text(
+                                      "Email:",
+                                      style: TextStyle(
+                                        fontFamily: 'Raleway',
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color.fromRGBO(5, 3, 19, 1),
+                                      ),
+                                    ),
                                   Container(height: 16),
                                   Container(
                                     width: double.infinity,
@@ -282,49 +317,51 @@ class _LomvlHaraLogin extends State<LomvlHaraLogin> {
                                       ),
                                     ),
                                   ),
-                                  DecoratedBox(
-                                    decoration: BoxDecoration(),
-                                    child: Container(height: 32),
-                                  ),
-
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "Password:",
-                                        style: TextStyle(
-                                          fontFamily: 'Raleway',
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                          color: Color.fromRGBO(5, 3, 19, 1),
-                                        ),
-                                      ),
-                                      if (_ntrAmkaraIS)
-                                        GestureDetector(
-                                          behavior: HitTestBehavior.translucent,
-                                          onTap: () {
-                                            Get.to(DchakRarishFor());
-                                          },
-                                          child: Text(
-                                            "FORGOT?",
-                                            style: TextStyle(
-                                              fontFamily: 'Raleway',
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                              color: Color.fromRGBO(
-                                                5,
-                                                3,
-                                                19,
-                                                1,
-                                              ),
-                                              decoration:
-                                                  TextDecoration.underline,
-                                            ),
+                                  if (_ntrAmkaraIS)
+                                    DecoratedBox(
+                                      decoration: BoxDecoration(),
+                                      child: Container(height: 32),
+                                    ),
+                                  if (_ntrAmkaraIS)
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          "Password:",
+                                          style: TextStyle(
+                                            fontFamily: 'Raleway',
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w500,
+                                            color: Color.fromRGBO(5, 3, 19, 1),
                                           ),
                                         ),
-                                    ],
-                                  ),
+                                        if (_ntrAmkaraIS)
+                                          GestureDetector(
+                                            behavior:
+                                                HitTestBehavior.translucent,
+                                            onTap: () {
+                                              Get.to(DchakRarishFor());
+                                            },
+                                            child: Text(
+                                              "FORGOT?",
+                                              style: TextStyle(
+                                                fontFamily: 'Raleway',
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500,
+                                                color: Color.fromRGBO(
+                                                  5,
+                                                  3,
+                                                  19,
+                                                  1,
+                                                ),
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              ),
+                                            ),
+                                          ),
+                                      ],
+                                    ),
                                   SizedBox(height: 16),
                                   Container(
                                     width: double.infinity,
@@ -369,24 +406,26 @@ class _LomvlHaraLogin extends State<LomvlHaraLogin> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            DecoratedBox(
-                                              decoration: BoxDecoration(),
-                                              child: Container(height: 32),
-                                            ),
-                                            Text(
-                                              "Password:",
-                                              style: TextStyle(
-                                                fontFamily: 'Raleway',
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.w500,
-                                                color: Color.fromRGBO(
-                                                  5,
-                                                  3,
-                                                  19,
-                                                  1,
+                                            if (_ntrAmkaraIS)
+                                              DecoratedBox(
+                                                decoration: BoxDecoration(),
+                                                child: Container(height: 32),
+                                              ),
+                                            if (_ntrAmkaraIS)
+                                              Text(
+                                                "Password:",
+                                                style: TextStyle(
+                                                  fontFamily: 'Raleway',
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Color.fromRGBO(
+                                                    5,
+                                                    3,
+                                                    19,
+                                                    1,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
                                             SizedBox(height: 16),
                                             Container(
                                               width: double.infinity,
@@ -459,9 +498,8 @@ class _LomvlHaraLogin extends State<LomvlHaraLogin> {
                                           return;
                                         }
 
-                                        await sereneFluxInvoker();
-
                                         if (_ntrAmkaraIS) {
+                                          await sereneFluxInvoker();
                                           final minDfUser = FFAppState
                                               .instance
                                               .zazImeAllUsers
@@ -483,33 +521,22 @@ class _LomvlHaraLogin extends State<LomvlHaraLogin> {
                                                 minDfUser.first.sukhabUid;
                                           }
                                         } else {
-                                          int hvARitAUid =
-                                              FFAppState
-                                                  .instance
-                                                  .zazImeAllUsers
-                                                  .length +
-                                              1;
+                                          if (_uddiYanaMIM.text == "" ||
+                                              _esupportNA.text == "") {
+                                            SmartDialog.showToast(
+                                              "The name and secondary password cannot be empty.",
+                                            );
+                                            return;
+                                          }
+                                          Get.to(
+                                            EnergeTicaligNmzu(
+                                              deeptchEM: _mulADlomYX.text,
+                                              coretranNA: _esupportNA.text,
+                                              breathinPA: _jalaNgyanMI.text,
+                                            ),
+                                          );
 
-                                          RootingUsers newMAritrAcUs =
-                                              RootingUsers(
-                                                sukhabUid: hvARitAUid,
-                                                vivekaUName: "User",
-                                                apattiUEmail: _mulADlomYX.text,
-                                                hastrikUPasw: _jalaNgyanMI.text,
-                                                idanadiUAvatar:
-                                                    "assets/images/Pazir.png",
-                                                relations: (
-                                                  stillsUGood: 0,
-                                                  vationUFollow: [],
-                                                  onactiUFans: [],
-                                                  easingUBlock: [],
-                                                ),
-                                              );
-                                          await FFAppState.instance
-                                              .stWAaBilAdUs(newMAritrAcUs);
-
-                                          FFAppState.instance.flexionLogUid =
-                                              hvARitAUid;
+                                          return;
                                         }
 
                                         Get.to(PranaAjnaShou());

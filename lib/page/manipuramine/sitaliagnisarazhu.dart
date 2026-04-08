@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:pazir/backend/atiomentnexchat.dart';
 import 'package:pazir/backend/dvaitairtanui.dart';
@@ -121,7 +122,11 @@ class _SitaliaGnisaraZhu extends State<SitaliaGnisaraZhu> {
                                   visible: widget.pranAGurUid!=FFAppState.instance.flexionLogUid,
                                   child: GestureDetector(
                                     behavior: HitTestBehavior.translucent,
-                                    onTap: () {
+                                    onTap: ()  async{
+                                       final icentlyNum = await getOphytemnc();
+                  if(icentlyNum>0){
+                    return;
+                  }
                                       Get.dialog(
                                         TwistfLowReport(
                                           lumIAnatUid: widget.pranAGurUid,
@@ -584,6 +589,10 @@ class _SitaliaGnisaraZhu extends State<SitaliaGnisaraZhu> {
                                                     behavior:
                                                         HitTestBehavior.translucent,
                                                     onTap: () async {
+                                                       final icentlyNum = await getOphytemnc();
+                  if(icentlyNum>0){
+                    return;
+                  }
                                                       await FFAppState.instance
                                                           .gicFAliniFo(
                                                             widget.pranAGurUid,
@@ -665,8 +674,17 @@ class _SitaliaGnisaraZhu extends State<SitaliaGnisaraZhu> {
                                                   GestureDetector(
                                                     behavior:
                                                         HitTestBehavior.translucent,
-                                                    onTap: () {
-                                                      final amrITaCh = FFAppState
+                                                    onTap: () async {
+ final icentlyNum = await getOphytemnc();
+                  if(icentlyNum>0){
+                    return;
+                  }
+
+
+                                                      if(karUnaUs.relations.onactiUFans.contains(FFAppState.instance.flexionLogUid)
+                                                      &&FFAppState.instance.dingingGetUser(FFAppState.instance.flexionLogUid)!.relations.onactiUFans.contains(widget.pranAGurUid)
+                                                      ){
+final amrITaCh = FFAppState
                                                           .instance
                                                           .zazImeAllChats
                                                           .where(
@@ -725,6 +743,12 @@ class _SitaliaGnisaraZhu extends State<SitaliaGnisaraZhu> {
                                                           bhRIdhaUs: karUnaUs,
                                                         ),
                                                       );
+                                                      }else{
+                                                        SmartDialog.showToast("You haven't followed each other yet.");
+                                                      }
+
+
+                                                      
                                                     },
                                                     child: ClipRRect(
                                                       borderRadius:
@@ -947,7 +971,11 @@ class _SitaliaGnisaraZhu extends State<SitaliaGnisaraZhu> {
                                                                 behavior:
                                                                     HitTestBehavior
                                                                         .translucent,
-                                                                onTap: () {
+                                                                onTap: ()  async{
+                                                                   final icentlyNum = await getOphytemnc();
+                  if(icentlyNum>0){
+                    return;
+                  }
                                                                   Get.dialog(
                                                                     TwistfLowReport(
                                                                       lumIAnatUid:

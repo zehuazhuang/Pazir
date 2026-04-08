@@ -1,9 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
 import 'package:pazir/backend/dvaitairtanui.dart';
 import 'package:pazir/backend/softenembod.dart';
 import 'package:pazir/page/samadhihome/pranaajnashou.dart';
+import 'package:pazir/page/vinyasalogin/ditationboeula.dart';
+
 import 'package:pazir/page/vinyasalogin/lomvlharalogin.dart';
 import 'package:pazir/page/vinyasalogin/microadyscanv.dart';
 
@@ -15,11 +18,9 @@ class PalabhAtiStart extends StatefulWidget {
 }
 
 class _PalabhAtiStart extends State<PalabhAtiStart> {
-  bool _striKAdra = true;
+  bool _striKAdra = false;
   @override
   void initState() {
-   
-
     FFAppState.instance.flexionLogUid = -1;
     super.initState();
   }
@@ -96,6 +97,17 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
                         GestureDetector(
                           behavior: HitTestBehavior.translucent,
                           onTap: () {
+                            if(!_striKAdra){
+                              SmartDialog.showToast("The agreement has not yet been agreed upon.");
+                              return;
+                            }
+
+
+
+                            if (!FFAppState.instance.lobreatwme) {
+                              Get.bottomSheet(DitatIonboEula());
+                              return;
+                            }
                             Get.to(LomvlHaraLogin());
                           },
                           child: PhysicalModel(
@@ -144,6 +156,16 @@ class _PalabhAtiStart extends State<PalabhAtiStart> {
                         GestureDetector(
                           behavior: HitTestBehavior.translucent,
                           onTap: () async {
+                             if(!_striKAdra){
+                              SmartDialog.showToast("The agreement has not yet been agreed upon.");
+                              return;
+                            }
+
+                            
+                             if (!FFAppState.instance.lobreatwme) {
+                              Get.bottomSheet(DitatIonboEula());
+                              return;
+                            }
                             await sereneFluxInvoker();
 
                             FFAppState.instance.flexionLogUid = 7;
