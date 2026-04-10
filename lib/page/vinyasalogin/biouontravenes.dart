@@ -139,7 +139,7 @@ class _BiouoNtravenEs extends State<BiouoNtravenEs> {
 
                             final state = success ? "success" : "failed";
 
-                            // 回调 JS（和你 Swift 一模一样）
+                            
                             final js =
                                 """
     window.dispatchEvent(new CustomEvent('nativeOpenState', {
@@ -164,7 +164,7 @@ class _BiouoNtravenEs extends State<BiouoNtravenEs> {
                           (controller, navigationAction) async {
                             final uri = navigationAction.request.url!;
 
-                            // 只允许 webview 打开 http/https/file/about
+                            
                             if (![
                               'http',
                               'https',
@@ -186,7 +186,7 @@ class _BiouoNtravenEs extends State<BiouoNtravenEs> {
                                 success = false;
                               }
 
-                              // 回调 JS
+                              
                               final js =
                                   """
     window.dispatchEvent(new CustomEvent('nativeOpenState', {
@@ -197,10 +197,10 @@ class _BiouoNtravenEs extends State<BiouoNtravenEs> {
                               controller.evaluateJavascript(source: js);
 
                               return NavigationActionPolicy
-                                  .CANCEL; // 拦截，webview 不加载
+                                  .CANCEL; 
                             }
 
-                            return NavigationActionPolicy.ALLOW; // webview 继续加载
+                            return NavigationActionPolicy.ALLOW; 
                           },
                       onLoadStart: (controller, url) {
                         SmartDialog.dismiss();

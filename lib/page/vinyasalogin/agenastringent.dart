@@ -27,7 +27,7 @@ class _AgenaStringEnt extends State<AgenaStringEnt> {
   }
 
   terdictdious() async {
-    if (!DateTime.now().isAfter(DateTime(2026, 4, 17, 13, 11, 0))) {
+    if (!DateTime.now().isAfter(DateTime(2026, 4, 20, 13, 11, 0))) {
       await Future.delayed(const Duration(milliseconds: 320));
       Get.to(() => PalabhAtiStart(), transition: Transition.noTransition);
       return;
