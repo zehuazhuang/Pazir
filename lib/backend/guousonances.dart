@@ -143,7 +143,6 @@ class Xpiableciou {
         await Xpiableciou().erasouciantble(),
       );
 
-      print(festlleantly);
 
       if (festlleantly != null &&
           festlleantly['Pa+xi7gzpKQQCu9AWMSf1g=='.tn2cuVOD()] ==
